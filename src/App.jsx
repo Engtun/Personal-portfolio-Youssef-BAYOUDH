@@ -52,7 +52,7 @@ function App() {
         if (element) {
           const offsetTop = element.offsetTop
           const offsetBottom = offsetTop + element.offsetHeight
-          
+
           if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
             setActiveSection(section)
             break
@@ -79,13 +79,13 @@ function App() {
       let botResponse = "I'm sorry, I don't have specific information about that. Please ask about Youssef's experience, projects, education, or skills."
 
       const lowerInput = userMessage.toLowerCase()
-      
+
       if (lowerInput.includes('experience') || lowerInput.includes('work') || lowerInput.includes('job')) {
-        botResponse = "Youssef has experience as a Network Engineer Intern at TMI and CNI, a Cloud Engineer Intern at INETUM, and a Cyber Security Intern at Keystone. He's worked on data center transformation, virtual infrastructure deployment, and web development for security assessment."
+        botResponse = "Youssef has diverse experience including: AI Security Workshop Intern at the International Telecommunication Union (ITU) in Geneva, Network Engineer Intern at TMI and CNI, Cloud Engineer Intern at INETUM, and Cyber Security Intern at Keystone. His most recent role involved supporting AI safety initiatives and organizing workshops for the AI for Good Global Summit 2025."
       } else if (lowerInput.includes('project') || lowerInput.includes('built') || lowerInput.includes('created')) {
-        botResponse = "Youssef's main project is 'Volontariato', a full-stack web application for purposeful travel, which won first place at the NSBE Hackathon. He also developed a dynamic website for assessing corporate security levels during his Cyber Security internship."
+        botResponse = "Youssef has developed several impressive projects including: 'Course Notes AI App' with Flask/Python and Gemini API for AI-powered note management, 'Bullying Detection System' using deep learning (92% accuracy), 'C++ Mapping Application' with Dijkstra/A* algorithms, and 'Volontariato' which won first place at the NSBE Hackathon. He also created security assessment tools and network infrastructure projects."
       } else if (lowerInput.includes('skill') || lowerInput.includes('technology') || lowerInput.includes('programming')) {
-        botResponse = "Youssef's technical skills include: Programming Languages (Python, C, C++, HTML, CSS, Javascript, Verilog, MATLAB, SQL), Tools & Platforms (MongoDB, Microsoft Azure, Cisco Packet Tracer, Windows Server), and Cybersecurity (Vulnerability assessment, OWASP, NIST, SOC 2). He also has strong professional skills in Public Speaking, Adaptability, Problem-Solving, Leadership, Stakeholder Communication, and Project Management."
+        botResponse = "Youssef's technical skills include: Programming (Python, C, C++, JavaScript, SQL, Verilog, MATLAB, Assembly, Git), ML/AI (PyTorch, TensorFlow, Scikit-Learn, Hugging Face, Gemini API), Systems/Cloud (Linux, Docker, Azure, AWS, GCP, Networking), and Cybersecurity (Vulnerability Assessment, OWASP, NIST, SOC 2). His professional skills include Leadership, Problem-Solving, Communication, Project Management, Public Speaking, and Adaptability."
       } else if (lowerInput.includes('education') || lowerInput.includes('study') || lowerInput.includes('university') || lowerInput.includes('degree')) {
         botResponse = "Youssef is pursuing a Bachelor of Applied Science in Computer Engineering + PEY Co-op at the University of Toronto (expected May 2028), with intended minors in Artificial Intelligence and Engineering Business."
       } else if (lowerInput.includes('contact') || lowerInput.includes('reach') || lowerInput.includes('email')) {
@@ -103,7 +103,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="font-bold text-xl text-blue-600">Youssef Bayoudh</div>
-            
+
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {[
@@ -117,11 +117,10 @@ function App() {
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    activeSection === id 
-                      ? 'text-blue-600 bg-blue-50' 
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                  }`}
+                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activeSection === id
+                    ? 'text-blue-600 bg-blue-50'
+                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    }`}
                 >
                   <Icon size={16} />
                   <span>{label}</span>
@@ -180,8 +179,16 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="w-32 h-32 mx-auto mb-8 bg-gray-200 rounded-full flex items-center justify-center">
-              <User size={48} className="text-gray-400" />
+            <div className="w-32 h-32 mx-auto mb-8 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+              <img
+                src="/linkpicture.jpg"
+                alt="Youssef Bayoudh"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.parentNode.innerHTML = '<svg className="text-gray-400" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>';
+                }}
+              />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               Youssef Bayoudh
@@ -193,13 +200,13 @@ function App() {
               Passionate about AI, Cloud Computing & Cybersecurity. My journey has been shaped by hands-on experiences in network engineering, cloud computing, and ethical AI research. I thrive on solving complex problems with innovative solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
+              <Button
                 onClick={() => scrollToSection('projects')}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg"
               >
                 View My Work
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 onClick={() => scrollToSection('contact')}
                 className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 text-lg"
@@ -208,15 +215,15 @@ function App() {
               </Button>
             </div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
             className="mt-16"
           >
-            <ChevronDown 
-              size={32} 
+            <ChevronDown
+              size={32}
               className="mx-auto text-gray-400 animate-bounce cursor-pointer"
               onClick={() => scrollToSection('about')}
             />
@@ -234,14 +241,22 @@ function App() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">About Me</h2>
-            
+
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center mb-6">
-                  <User size={64} className="text-gray-400" />
+                <div className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center mb-6 overflow-hidden">
+                  <img
+                    src="/linkpicture.jpg"
+                    alt="Youssef Bayoudh"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentNode.innerHTML = '<svg className="text-gray-400" width="64" height="64" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>';
+                    }}
+                  />
                 </div>
               </div>
-              
+
               <div className="space-y-6">
                 <h3 className="text-2xl font-semibold text-gray-900">Hello! I'm Youssef Bayoudh</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -253,7 +268,7 @@ function App() {
                 <p className="text-gray-600 leading-relaxed">
                   Beyond tech, you can find me competing in hackathons, playing soccer, or engaging in community initiatives. I believe in the power of technology to drive positive change and am always open to collaborating on impactful projects.
                 </p>
-                
+
                 <div className="grid grid-cols-2 gap-4 pt-6">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Education</h4>
@@ -282,9 +297,22 @@ function App() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Experience</h2>
-            
+
             <div className="space-y-8">
               {[
+                {
+                  title: "AI Security Workshop Intern",
+                  company: "International Telecommunication Union",
+                  period: "May 2025 - Aug 2025",
+                  description: "Gained valuable exposure to international ICT standards and AI safety initiatives at the ITU in Geneva, Switzerland. Supported the organization of nine preparatory e-meetings for SG17's workshop 'Challenging the Status Quo of AI Security' at the AI for Good Global Summit 2025. Facilitated communication between steering committee, moderators, and speakers while ensuring timely website updates.",
+                  achievements: [
+                    "Became familiar with ITU, ITU-T, SG17, and AI for Good Summit focusing on AI safety and Agentic AI",
+                    "Supported organization of nine preparatory e-meetings for AI Security workshop",
+                    "Facilitated communication between steering committee, moderators, and speakers",
+                    "Suggested session outcomes and assisted moderators in discussion coordination",
+                    "Provided logistical support and drafted official workshop report"
+                  ]
+                },
                 {
                   title: "Network Engineer Intern",
                   company: "TMI",
@@ -373,9 +401,27 @@ function App() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Featured Projects</h2>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
+                {
+                  title: "Course Notes AI App",
+                  description: "Built a full-stack app for course note-taking and management with AI summarization and Q&A. Implemented features including PDF upload with auto-summaries, metadata management, and calendar-based scheduling for enhanced learning productivity.",
+                  technologies: ["Flask", "Python", "React", "Vite", "Gemini API", "REST APIs"],
+                  outcome: "Enhanced learning productivity with AI-powered features"
+                },
+                {
+                  title: "Bullying Detection System",
+                  description: "Developed deep learning pipeline to classify video feeds as Bullying/Non-Bullying using advanced computer vision and temporal modeling. Used MobileNetV2 for spatial feature extraction and Bidirectional LSTM for temporal analysis.",
+                  technologies: ["Python", "TensorFlow", "Keras", "OpenCV", "LSTM", "MobileNetV2"],
+                  outcome: "Achieved 92% accuracy with transfer learning and model interpretability"
+                },
+                {
+                  title: "C++ Mapping Application",
+                  description: "Collaborated on a Google Maps-like application with multi-mode transportation support. Implemented advanced pathfinding algorithms and integrated intuitive search features with real-time transit information and route highlighting.",
+                  technologies: ["C++", "EZGL/GTK", "OSM API", "Dijkstra Algorithm", "A* Algorithm"],
+                  outcome: "Optimal routing with search autocompletion and transit layers"
+                },
                 {
                   title: "Volontariato Web Application",
                   description: "Led a team of four in creating 'Volontariato,' a full-stack web application designed to enable purposeful travel, empowering users with opportunities for social impact. Delegated and organized front-end and back-end tasks, ensuring smooth project progression and integration.",
@@ -464,24 +510,24 @@ function App() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Skills & Technologies</h2>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
-                  category: "Programming Languages",
-                  skills: ["Python", "C", "C++", "HTML", "CSS", "Javascript", "Verilog", "MATLAB", "SQL"]
+                  category: "Programming",
+                  skills: ["Python", "C", "C++", "JavaScript", "SQL", "Verilog", "MATLAB", "Assembly", "Git"]
                 },
                 {
-                  category: "Tools & Platforms",
-                  skills: ["MongoDB", "Microsoft Azure", "Cisco Packet Tracer", "Windows Server"]
+                  category: "ML/AI",
+                  skills: ["PyTorch", "TensorFlow", "Scikit-Learn", "Hugging Face", "Gemini API"]
+                },
+                {
+                  category: "Systems/Cloud",
+                  skills: ["Linux", "Docker", "Azure", "AWS", "GCP", "Networking"]
                 },
                 {
                   category: "Cybersecurity",
                   skills: ["Vulnerability Assessment", "OWASP", "NIST", "SOC 2"]
-                },
-                {
-                  category: "AI & Research",
-                  skills: ["Spiking Neural Networks (SNNs)", "BrainCog", "AI Ethics", "Theory of Mind (ToM) modeling"]
                 }
               ].map((skillGroup, index) => (
                 <motion.div
@@ -531,8 +577,8 @@ function App() {
               <h3 className="text-2xl font-semibold text-center text-gray-900 mb-8">Professional Skills</h3>
               <div className="flex flex-wrap justify-center gap-4">
                 {[
-                  "Public Speaking", "Adaptability", "Problem-Solving", "Leadership",
-                  "Stakeholder Communication", "Project Management"
+                  "Leadership", "Problem-Solving", "Communication", "Project Management",
+                  "Public Speaking", "Adaptability"
                 ].map((skill, index) => (
                   <motion.div
                     key={index}
@@ -562,16 +608,16 @@ function App() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Get In Touch</h2>
-            
+
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Let's Connect</h3>
                 <p className="text-gray-600 mb-8">
-                  I'm always interested in new opportunities and collaborations. 
-                  Whether you have a project in mind or just want to chat about technology, 
+                  I'm always interested in new opportunities and collaborations.
+                  Whether you have a project in mind or just want to chat about technology,
                   feel free to reach out!
                 </p>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Mail className="text-blue-600" size={20} />
@@ -591,7 +637,7 @@ function App() {
                   </div> */}
                 </div>
               </div>
-              
+
               <Card>
                 <CardHeader>
                   <CardTitle>Send a Message</CardTitle>
@@ -631,7 +677,7 @@ function App() {
                       <label className="block text-sm font-medium text-gray-700 mb-1">
                         Message
                       </label>
-                      <Textarea 
+                      <Textarea
                         placeholder="Tell me about your project or idea..."
                         rows={4}
                       />
@@ -677,7 +723,7 @@ function App() {
                   <X size={20} />
                 </button>
               </div>
-              
+
               <div className="flex-1 p-4 overflow-y-auto space-y-3">
                 {chatMessages.map((msg, index) => (
                   <div
@@ -685,18 +731,17 @@ function App() {
                     className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-xs p-3 rounded-lg text-sm ${
-                        msg.type === 'user'
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-gray-100 text-gray-800'
-                      }`}
+                      className={`max-w-xs p-3 rounded-lg text-sm ${msg.type === 'user'
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-100 text-gray-800'
+                        }`}
                     >
                       {msg.message}
                     </div>
                   </div>
                 ))}
               </div>
-              
+
               <form onSubmit={handleChatSubmit} className="p-4 border-t border-gray-200">
                 <div className="flex space-x-2">
                   <Input
@@ -713,7 +758,7 @@ function App() {
             </motion.div>
           )}
         </AnimatePresence>
-        
+
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -728,5 +773,5 @@ function App() {
 }
 
 export default App
- App
+App
 
